@@ -1,0 +1,162 @@
+[23:23:47] [PROCESOS] Gestor de procesos simulados iniciado
+[23:23:47] [PROCESOS] Nuevo proceso detectado: virus.exe
+[23:23:47] [PROCESOS] ALERTA: virus.exe está en la lista negra
+[23:23:47] [PROCESOS] Acción: El proceso virus.exe ha sido interrumpido
+[23:23:49] [PROCESOS] Nuevo proceso detectado: troyano.exe
+[23:23:49] [PROCESOS] ALERTA: troyano.exe está en la lista negra
+[23:23:49] [PROCESOS] Acción: El proceso troyano.exe ha sido interrumpido
+[23:23:52] [PROCESOS] Nuevo proceso detectado: troyano.exe
+[23:23:52] [PROCESOS] ALERTA: troyano.exe está en la lista negra
+[23:23:52] [PROCESOS] Acción: El proceso troyano.exe ha sido interrumpido
+[23:23:54] [PROCESOS] Nuevo proceso detectado: proceso_11.exe
+[23:23:57] [PROCESOS] Nuevo proceso detectado: proceso_44.exe
+[23:23:59] [PROCESOS] Nuevo proceso detectado: virus.exe
+[23:23:59] [PROCESOS] ALERTA: virus.exe está en la lista negra
+[23:23:59] [PROCESOS] Acción: El proceso virus.exe ha sido interrumpido
+[23:35:28] [PROCESOS] Iniciando simulación de procesos...
+[23:35:28] [PROCESOS] Proceso proceso_0.exe ha iniciado.
+[23:35:28] [PROCESOS] Proceso proceso_1.exe ha iniciado.
+[23:35:28] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:35:28] [PROCESOS] Proceso proceso_3.exe ha iniciado.
+[23:35:28] [PROCESOS] Proceso proceso_4.exe ha iniciado.
+[23:35:28] [PROCESOS] Proceso proceso_5.exe ha iniciado.
+[23:35:28] [PROCESOS] Uso excesivo de CPU en proceso_0.exe: 94%
+[23:35:28] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:35:36] [PROCESOS] Uso excesivo de CPU en proceso_1.exe: 89%
+[23:35:36] [PROCESOS] Proceso finalizado naturalmente: proceso_3.exe
+[23:35:40] [PROCESOS] Finalizando proceso por tiempo de vida: proceso_4.exe
+[23:35:40] [PROCESOS] Finalizando proceso por tiempo de vida: proceso_5.exe
+[23:35:42] [PROCESOS] Simulación finalizada. No quedan procesos activos.
+[23:36:19] [PROCESOS] Iniciando simulación de procesos...
+[23:36:19] [PROCESOS] Proceso proceso_0.exe ha iniciado.
+[23:36:19] [PROCESOS] Proceso proceso_1.exe ha iniciado.
+[23:36:19] [PROCESOS] Proceso proceso_2.exe ha iniciado.
+[23:36:19] [PROCESOS] Proceso proceso_3.exe ha iniciado.
+[23:36:19] [PROCESOS] Proceso proceso_4.exe ha iniciado.
+[23:36:19] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:36:19] [PROCESOS] Proceso finalizado naturalmente: proceso_0.exe
+[23:36:19] [PROCESOS] Uso excesivo de CPU en proceso_1.exe: 82%
+[23:36:19] [PROCESOS] Proceso finalizado naturalmente: proceso_2.exe
+[23:36:19] [PROCESOS] Uso excesivo de CPU en proceso_3.exe: 85%
+[23:36:19] [PROCESOS] Uso excesivo de CPU en proceso_4.exe: 93%
+[23:36:19] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:36:21] [PROCESOS] Simulación finalizada. No quedan procesos activos.
+[23:38:17] [PROCESOS] Iniciando simulación de procesos...
+[23:38:17] [PROCESOS] Proceso proceso_0.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso virus.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_3.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_4.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_5.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso virus.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_7.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_8.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_9.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_10.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_11.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_12.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso keylogger.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_14.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_15.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso keylogger.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_17.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso keylogger.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_19.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_20.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_21.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_25.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_26.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_27.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso virus.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso virus.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_30.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_31.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_32.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_34.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso virus.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso keylogger.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_38.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso keylogger.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso virus.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_42.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_43.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso troyano.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso keylogger.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_46.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_47.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_48.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso proceso_49.exe ha iniciado.
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_0.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: virus.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_3.exe
+[23:38:17] [PROCESOS] Uso excesivo de CPU en proceso_4.exe: 94%
+[23:38:17] [PROCESOS] Uso excesivo de CPU en proceso_5.exe: 90%
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: virus.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_7.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_8.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_9.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_10.exe
+[23:38:17] [PROCESOS] Uso excesivo de CPU en proceso_11.exe: 90%
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_12.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: keylogger.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_14.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_15.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: keylogger.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_17.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: keylogger.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_19.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_20.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_21.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_25.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_26.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_27.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: virus.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: virus.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_30.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_31.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_32.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_34.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: virus.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: keylogger.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_38.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: keylogger.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: virus.exe
+[23:38:17] [PROCESOS] Uso excesivo de CPU en proceso_42.exe: 87%
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_43.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: troyano.exe
+[23:38:17] [PROCESOS] Detectado proceso prohibido: keylogger.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_46.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_47.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_48.exe
+[23:38:17] [PROCESOS] Proceso finalizado naturalmente: proceso_49.exe
+[23:38:19] [PROCESOS] Simulación finalizada. No quedan procesos activos.
+[23:45:32] [PROCESOS] Iniciando simulación y monitoreo...
+[23:45:32] [PROCESOS] Proceso proceso_0.exe iniciado.
+[23:45:32] [PROCESOS] Proceso keylogger.exe iniciado.
+[23:45:32] [PROCESOS] Proceso proceso_2.exe iniciado.
+[23:45:32] [PROCESOS] Proceso proceso_3.exe iniciado.
+[23:45:32] [PROCESOS] Proceso proceso_4.exe iniciado.
+[23:45:32] [PROCESOS] Proceso proceso_5.exe iniciado.
+[23:45:32] [PROCESOS] ALERTA: Uso excesivo de CPU en proceso_3.exe (98%)
+[23:45:32] [PROCESOS] Proceso proceso_3.exe agregado permanentemente a la lista negra.
+[23:45:32] [PROCESOS] Acción: Proceso proceso_3.exe bloqueado y eliminado.
+[23:45:32] [PROCESOS] ALERTA: Uso excesivo de CPU en proceso_4.exe (93%)
+[23:45:32] [PROCESOS] Proceso proceso_4.exe agregado permanentemente a la lista negra.
+[23:45:32] [PROCESOS] Acción: Proceso proceso_4.exe bloqueado y eliminado.
+[23:45:32] [PROCESOS] ALERTA: Uso excesivo de CPU en proceso_5.exe (93%)
+[23:45:32] [PROCESOS] Proceso proceso_5.exe agregado permanentemente a la lista negra.
+[23:45:32] [PROCESOS] Acción: Proceso proceso_5.exe bloqueado y eliminado.
+[23:45:34] [PROCESOS] Simulación finalizada.
