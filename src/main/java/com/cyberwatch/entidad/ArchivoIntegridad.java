@@ -1,4 +1,4 @@
-package com.cyberwatch.model;
+package com.cyberwatch.entidad;
 
 public class ArchivoIntegridad {
 

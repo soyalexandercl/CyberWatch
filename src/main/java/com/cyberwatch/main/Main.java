@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            VentanaPrincipal ventana = new VentanaPrincipal();
-            ventana.setLocationRelativeTo(null);
-            ventana.setVisible(true);
+            VentanaPrincipal v = new VentanaPrincipal();
+            v.setLocationRelativeTo(null);
+            v.setVisible(true);
         });
     }
 }

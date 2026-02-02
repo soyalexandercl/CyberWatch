@@ -1,3 +1,0 @@
-proceso_3.exe
-proceso_4.exe
-proceso_5.exe

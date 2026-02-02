@@ -1,57 +1,53 @@
 package com.cyberwatch.ui;
 
-import com.cyberwatch.service.*;
+import com.cyberwatch.gestores.GestorIntegridad;
+import com.cyberwatch.gestores.GestorRed;
+import com.cyberwatch.gestores.GestorProcesos;
 import com.cyberwatch.util.Log;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 
 public class VentanaPrincipal extends JFrame {
-    private JTextArea areaLogs;
-    private Log logger;
-    private GestorIntegridad gIntegridad;
-    private GestorProcesos gProcesos;
-    private GestorRed gRed;
+
+    private final JTextArea areaLogs;
+    private final Log logger;
 
     public VentanaPrincipal() {
         setTitle("CyberWatch");
-        setSize(700, 500);
+        setSize(800, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         areaLogs = new JTextArea();
         areaLogs.setEditable(false);
+        areaLogs.setForeground(Color.BLUE);
         logger = new Log(areaLogs);
-        gRed = new GestorRed(logger);
 
         add(new JScrollPane(areaLogs), BorderLayout.CENTER);
 
         JPanel panelBotones = new JPanel();
-        JButton btnIntegridad = new JButton("Monitorear Carpeta");
-        JButton btnTrafico = new JButton("Analizar Red");
+        JButton btnArchivos = new JButton("Monitorear Carpeta");
+        JButton btnRed = new JButton("Analizar Red");
         JButton btnProcesos = new JButton("Simular Procesos");
 
-        btnIntegridad.addActionListener(e -> {
-            JFileChooser chooser = new JFileChooser();
-            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-                gIntegridad = new GestorIntegridad(chooser.getSelectedFile().getAbsolutePath(), logger);
-                gIntegridad.start();
+        btnArchivos.addActionListener(e -> {
+            JFileChooser fc = new JFileChooser();
+            fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                new GestorIntegridad(fc.getSelectedFile().getAbsolutePath(), logger).start();
             }
         });
 
-        btnTrafico.addActionListener(e -> {
-            gRed.generarTrafico();
-            gRed.analizarTrafico();
+        btnRed.addActionListener(e -> {
+            GestorRed gr = new GestorRed(logger);
+            gr.crearTrafico();
+            gr.analizar();
         });
 
-        btnProcesos.addActionListener(e -> {
-            gProcesos = new GestorProcesos(logger);
-            gProcesos.start();
-        });
+        btnProcesos.addActionListener(e -> new GestorProcesos(logger).start());
 
-        panelBotones.add(btnIntegridad);
-        panelBotones.add(btnTrafico);
+        panelBotones.add(btnArchivos);
+        panelBotones.add(btnRed);
         panelBotones.add(btnProcesos);
         add(panelBotones, BorderLayout.NORTH);
     }
