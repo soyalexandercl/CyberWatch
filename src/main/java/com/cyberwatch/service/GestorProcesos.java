@@ -4,154 +4,184 @@ import com.cyberwatch.model.ProcesoSimulado;
 import com.cyberwatch.util.Log;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class GestorProcesos extends Thread {
-    private List<ProcesoSimulado> procesosActivos;
-    private List<String> listaNegra;
-    private Log logger;
-    private boolean activo;
-    private Random random;
-    private String rutaListaNegra = "procesosProhibidos.txt"; // Archivo de persistencia
 
-    public GestorProcesos(Log logger) {
-        this.logger = logger;
-        this.procesosActivos = new ArrayList<>();
-        this.listaNegra = new ArrayList<>();
-        this.activo = true;
+    private final Random random;
+    private final Log log;
+    private final String rutaLog;
+    private final String rutaProcesosProhibidos;
+    private final List<ProcesoSimulado> listaProcesosActivos;
+    private final List<String> listaProcesosProhibidos;
+
+    public GestorProcesos(Log log) {
         this.random = new Random();
-        cargarListaNegra();
+        this.log = log;
+        this.rutaLog = "logs/log_sdas.txt";
+        this.rutaProcesosProhibidos = "logs/procesosProhibidos.txt";
+        this.listaProcesosActivos = new ArrayList<>();
+        this.listaProcesosProhibidos = new ArrayList<>();
     }
 
-    // Carga inicial desde el archivo
-    private void cargarListaNegra() {
-        if (!Files.exists(Paths.get(rutaListaNegra))) {
-            return;
+    // Leer nombres de procesos bloqueados desde el archivo
+    public void cargarProcesosProhibidos() throws IOException {
+        log.registrarLinea(rutaLog, "[INFO] Cargando procesos prohibidos");
+
+        Path ruta = Paths.get(this.rutaProcesosProhibidos);
+        if (Files.notExists(ruta)) {
+            Files.createDirectories(ruta.getParent());
+            Files.createFile(ruta);
         }
-        try (BufferedReader br = new BufferedReader(new FileReader(rutaListaNegra))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                if (!linea.trim().isEmpty()) {
-                    listaNegra.add(linea.trim().toLowerCase());
+
+        try (BufferedReader br = Files.newBufferedReader(ruta)) {
+            String lineaActual;
+            while ((lineaActual = br.readLine()) != null) {
+                if (!lineaActual.trim().isEmpty()) {
+                    listaProcesosProhibidos.add(lineaActual.trim());
                 }
             }
         } catch (IOException e) {
-            logger.registrar("PROCESOS", "Error al cargar la lista negra física.");
+            log.registrarLinea(this.rutaLog, "[ERROR] No se pudo leer "
+                    + this.rutaProcesosProhibidos);
+        }
+
+        log.registrarLinea(rutaLog, "[INFO] Los procesos prohibidos existentes fueron cargados");
+    }
+
+    // Guardar un proceso en la lista negra
+    public void agregarProcesoProhibido(String nombre) {
+        try (BufferedWriter bw = new BufferedWriter(
+                new FileWriter(this.rutaProcesosProhibidos, true))) {
+            bw.write(nombre);
+            bw.newLine();
+            listaProcesosProhibidos.add(nombre);
+
+            log.registrarLinea(rutaLog, "[INFO] El proceso " + nombre + " fue agregado a la lista de procesos prohibidos");
+        } catch (IOException e) {
+            log.registrarLinea(this.rutaLog, "[ERROR] No se pudo escribir en "
+                    + this.rutaProcesosProhibidos);
         }
     }
 
-    // Método para agregar y PERSISTIR el sospechoso
-    private void agregarAListaNegra(String nombre) {
-        String nombreLimpio = nombre.toLowerCase();
-        // Solo agregamos si no estaba ya
-        if (!estaEnListaNegra(nombreLimpio)) {
-            listaNegra.add(nombreLimpio);
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaListaNegra, true))) {
-                bw.write(nombreLimpio);
-                bw.newLine();
-                logger.registrar("PROCESOS", "Proceso " + nombre + " agregado permanentemente a la lista negra.");
-            } catch (IOException e) {
-                logger.registrar("PROCESOS", "Error al escribir en el archivo de lista negra.");
-            }
-        }
-    }
+    // Verificar si el proceso está en la lista negra
+    public boolean analizarProcesoProhibido(ProcesoSimulado procesoActual) {
+        for (String procesoProhibido : listaProcesosProhibidos) {
+            if (procesoActual.getNombre().equalsIgnoreCase(procesoProhibido)) {
+                log.registrarLinea(this.rutaLog, "[PROCESO] El proceso "
+                        + procesoActual.getNombre() + " se encuentra en la lista negra");
 
-    private boolean estaEnListaNegra(String nombre) {
-        String nombreBusqueda = nombre.toLowerCase();
-        int i = 0;
-        while (i < listaNegra.size()) {
-            if (listaNegra.get(i).equals(nombreBusqueda)) {
                 return true;
             }
-            i++;
         }
+
         return false;
+    }
+
+    // Revisar si el consumo de recursos es muy alto
+    public boolean analizarUsoCpuProceso(ProcesoSimulado procesoActual) {
+        int usoCpuProcesoActual = procesoActual.getUsoCpu();
+
+        if (usoCpuProcesoActual > 80) {
+            log.registrarLinea(this.rutaLog, "[PROCESO] El proceso "
+                    + procesoActual.getNombre() + " excede el uso de CPU "
+                    + usoCpuProcesoActual + "%");
+
+            return true;
+        }
+
+        return false;
+    }
+
+    // Controlar cuánto tiempo lleva encendido el proceso
+    public boolean analizarTiempoInicioProceso(long tiempoActual, ProcesoSimulado procesoActual) {
+        long tiempo = (tiempoActual - procesoActual.getTiempoInicio()) / 1000;
+
+        if (tiempo > 10) {
+            log.registrarLinea(this.rutaLog, "[PROCESO] El proceso "
+                    + procesoActual.getNombre() + " lleva activo " + tiempo
+                    + " segundos");
+
+            return true;
+        }
+
+        return false;
+    }
+
+    // Evaluar y detener procesos sospechosos
+    public void analizarProcesos() {
+        long tiempoActual = System.currentTimeMillis();
+
+        for (int i = 0; i < listaProcesosActivos.size(); i++) {
+            ProcesoSimulado procesoActual = listaProcesosActivos.get(i);
+
+            // Detener si es peligroso, consume mucho o lleva mucho tiempo
+            if (this.analizarProcesoProhibido(procesoActual)
+                    || this.analizarUsoCpuProceso(procesoActual)
+                    || this.analizarTiempoInicioProceso(tiempoActual, procesoActual)) {
+
+                if (!this.analizarProcesoProhibido(procesoActual)) {
+                    this.agregarProcesoProhibido(procesoActual.getNombre());
+                }
+
+                log.registrarLinea(this.rutaLog, "[PROCESO] El proceso "
+                        + procesoActual.getNombre() + " se interrumpió");
+
+                procesoActual.interrupt();
+                listaProcesosActivos.remove(i);
+                i--;
+            } else if (!procesoActual.getEstado()) {
+                listaProcesosActivos.remove(i);
+                i--;
+            }
+        }
     }
 
     @Override
     public void run() {
-        logger.registrar("PROCESOS", "Iniciando simulación y monitoreo...");
+        // Ejecutar la simulación de procesos y el análisis
+        try {
+            log.registrarLinea(rutaLog, "[INFO] Gestor de procesos simulados iniciado");
 
-        // Generación de tanda inicial de procesos (Mismo sistema de probabilidad)
-        int cantidadMax = 6;
-        int contador = 0;
-        while (contador < cantidadMax) {
-            String nombre;
-            if (random.nextInt(20) + 1 >= 15) {
-                String[] maliciosos = {"keylogger.exe", "troyano.exe", "virus.exe"};
-                nombre = maliciosos[random.nextInt(maliciosos.length)];
-            } else {
-                nombre = "proceso_" + contador + ".exe";
+            this.cargarProcesosProhibidos();
+
+            int cantidadProcesos = 5;
+
+            // Generar procesos normales o maliciosos al azar
+            for (int i = 0; i <= cantidadProcesos; i++) {
+                String[] procesos = {"keylogger.exe", "troyano.exe", "virus.exe"};
+
+                if (random.nextInt(20) + 1 >= 15) {
+                    ProcesoSimulado proceso = new ProcesoSimulado(log,
+                            procesos[random.nextInt(procesos.length)],
+                            (random.nextInt(3) + 8) * 10
+                    );
+                    proceso.start();
+                    listaProcesosActivos.add(proceso);
+                } else {
+                    ProcesoSimulado proceso = new ProcesoSimulado(log,
+                            "proceso" + i + ".exe",
+                            random.nextInt(100) + 1);
+                    proceso.start();
+                    listaProcesosActivos.add(proceso);
+                }
             }
 
-            ProcesoSimulado p = new ProcesoSimulado(nombre, random.nextInt(100), logger);
-            p.start();
-            procesosActivos.add(p);
-            logger.registrar("PROCESOS", "Proceso " + nombre + " iniciado.");
-            contador++;
+            // Mantener el análisis activo mientras haya procesos (Análisis continuo sin sleep)
+            while (listaProcesosActivos.size() > 0) {
+                analizarProcesos();
+            }
+
+            log.registrarLinea(rutaLog, "[INFO] Gestor de procesos simulados detenido");
+        } catch (IOException e) {
+            log.registrarLinea(this.rutaLog, "[ERROR] hubo un error con el gestor de procesos");
         }
-
-        // Bucle de monitoreo activo
-        while (activo && procesosActivos.size() > 0) {
-            analizarProcesos();
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                activo = false;
-            }
-        }
-        logger.registrar("PROCESOS", "Simulación finalizada.");
-    }
-
-    private void analizarProcesos() {
-        long tiempoActual = System.currentTimeMillis();
-        int i = 0;
-
-        while (i < procesosActivos.size()) {
-            ProcesoSimulado p = procesosActivos.get(i);
-            boolean sospechoso = false;
-
-            // 1. Verificación contra lista negra cargada
-            if (estaEnListaNegra(p.getNombre())) {
-                logger.registrar("PROCESOS", "ALERTA: Detectado proceso en lista negra: " + p.getNombre());
-                sospechoso = true;
-            }
-
-            // 2. Verificación de comportamiento anómalo (CPU)
-            if (!sospechoso && p.getUsoCpu() > 80) {
-                logger.registrar("PROCESOS", "ALERTA: Uso excesivo de CPU en " + p.getNombre() + " (" + p.getUsoCpu() + "%)");
-                agregarAListaNegra(p.getNombre()); // Lo agregamos para el futuro
-                sospechoso = true;
-            }
-
-            // 3. Verificación de persistencia (>10 segundos)
-            long segundosActivo = (tiempoActual - p.getTiempoInicio()) / 1000;
-            if (!sospechoso && segundosActivo > 10) {
-                logger.registrar("PROCESOS", "ALERTA: Proceso persistente sospechoso: " + p.getNombre());
-                agregarAListaNegra(p.getNombre()); // Lo agregamos para el futuro
-                sospechoso = true;
-            }
-
-            if (sospechoso) {
-                p.interrupt(); // Detenemos el hilo del proceso
-                procesosActivos.remove(i);
-                logger.registrar("PROCESOS", "Acción: Proceso " + p.getNombre() + " bloqueado y eliminado.");
-            } else if (!p.isAlive()) {
-                procesosActivos.remove(i); // El proceso terminó solo
-            } else {
-                i++;
-            }
-        }
-    }
-
-    public void detener() {
-        this.activo = false;
     }
 }

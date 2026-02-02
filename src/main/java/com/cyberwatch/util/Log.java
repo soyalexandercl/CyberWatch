@@ -6,31 +6,29 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
 
 public class Log {
-    private JTextArea areaTexto;
-    private String rutaArchivo = "log_sdas.txt";
-
-    public Log(JTextArea areaTexto) {
-        this.areaTexto = areaTexto;
+    
+    private final JTextArea campoLogs;
+    
+    public Log(JTextArea campoLogs) {
+        this.campoLogs = campoLogs;
     }
 
-    public void registrar(String modulo, String mensaje) {
-        String fechaHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        String lineaLog = "[" + fechaHora + "] [" + modulo.toUpperCase() + "] " + mensaje;
+    // Escribir un evento tanto en el archivo de texto como en la pantalla
+    public synchronized void registrarLinea(String nombreArchivo, String informacion) {
+        String fechaHora = LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-        System.out.println(lineaLog);
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo, true))) {
+            String informacionCompleta = "[" + fechaHora + "] " + informacion;
+            bw.write(informacionCompleta);
+            bw.newLine();
 
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(rutaArchivo, true))) {
-            escritor.write(lineaLog);
-            escritor.newLine();
+            // Actualizar el área de texto en la interfaz gráfica
+            javax.swing.SwingUtilities.invokeLater(() -> { campoLogs.append(informacionCompleta + "\n"); });
         } catch (IOException e) {
-            System.out.println("Error al escribir log");
+            System.out.println("Error al escribir el archivo.");
         }
-
-        SwingUtilities.invokeLater(() -> {
-            areaTexto.append(lineaLog + "\n");
-        });
     }
 }

@@ -4,38 +4,63 @@ import com.cyberwatch.util.Log;
 import java.util.Random;
 
 public class ProcesoSimulado extends Thread {
-    private String nombre;
-    private int usoCpu;
-    private boolean activo;
-    private long tiempoInicio;
-    private Log logger;
-    private Random random;
 
-    public ProcesoSimulado(String nombre, int usoCpu, Log logger) {
+    private final Random random;
+    private final Log log;
+    private final String nombre;
+    private int usoCpu;
+    private boolean estado;
+    private final long tiempoInicio;
+
+    public ProcesoSimulado(Log log, String nombre, int usoCpu) {
+        this.random = new Random();
+        this.log = log;
         this.nombre = nombre;
         this.usoCpu = usoCpu;
-        this.logger = logger;
-        this.activo = true;
-        this.random = new Random();
-        // Guardamos el momento de inicio para calcular la persistencia
-        this.tiempoInicio = System.currentTimeMillis();
+        this.estado = true;
+        this.tiempoInicio = System.currentTimeMillis() - random.nextInt(2000);
     }
 
-    public String getNombre() { return nombre; }
-    public int getUsoCpu() { return usoCpu; }
-    public long getTiempoInicio() { return tiempoInicio; }
-    public boolean isActivo() { return activo; }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getUsoCpu() {
+        return usoCpu;
+    }
+
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public long getTiempoInicio() {
+        return tiempoInicio;
+    }
 
     @Override
     public void run() {
-        // El proceso se ejecuta mientras esté activo y no sea interrumpido
-        while (activo && !Thread.currentThread().isInterrupted()) {
-            // Actualizamos el uso de CPU aleatoriamente
-            this.usoCpu = random.nextInt(100);
-            // Pequeña probabilidad de que el proceso termine por su cuenta
-            if (random.nextInt(100) < 5) {
-                activo = false;
+        // Lógica de ejecución del proceso simulado
+        try {
+            while (!Thread.currentThread().isInterrupted()) {
+                if (estado) {
+                    log.registrarLinea("logs/log_sdas.txt", "[PROCESO] El proceso "
+                            + this.nombre + " ha iniciado.");
+                    
+                    this.usoCpu = random.nextInt(100);
+
+                    Thread.sleep(100);
+
+                    this.estado = random.nextBoolean();
+                } else {
+                    // Detener el hilo si el proceso termina
+                    Thread.currentThread().interrupt();
+
+                    log.registrarLinea("logs/log_sdas.txt", "[PROCESO] El proceso "
+                            + this.nombre + " ha finalizado.");
+                }
             }
+        } catch (Exception e) {
+            Thread.currentThread().interrupt();
         }
     }
 }
