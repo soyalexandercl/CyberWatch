@@ -1,0 +1,4 @@
+proceso_seguro_4.exe
+proceso_seguro_0.exe
+virus.exe
+proceso_seguro_2.exe

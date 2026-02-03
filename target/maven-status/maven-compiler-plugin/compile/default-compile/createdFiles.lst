@@ -1,8 +1,8 @@
-com\cyberwatch\model\ArchivoIntegridad.class
-com\cyberwatch\service\GestorRed.class
-com\cyberwatch\service\GestorIntegridad.class
-com\cyberwatch\ui\VentanaPrincipal.class
-com\cyberwatch\main\Main.class
-com\cyberwatch\service\GestorProcesos.class
-com\cyberwatch\model\ProcesoSimulado.class
-com\cyberwatch\util\Log.class
+gestores\GestorIntegridad.class
+ui\VentanaPrincipal.class
+util\Log.class
+entidad\ProcesoSimulado.class
+gestores\GestorProcesos.class
+gestores\GestorRed.class
+main\Main.class
+entidad\ArchivoIntegridad.class

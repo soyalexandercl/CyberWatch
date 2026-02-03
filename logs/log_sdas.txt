@@ -1,0 +1,163 @@
+[2026-09-03 21:09:09] [INFO] Creando IPs aleatorias
+[2026-09-03 21:09:09] [INFO] Gestor de tráfico iniciado
+[2026-09-03 21:09:09] [12:00:02] [RED] Conexión sospechosa detectada desde 192.168.1.0 al puerto 4444.
+[2026-09-03 21:09:09] [RED] Intervalo anómalo detectado para 192.168.1.0: 2 segundos.
+[2026-09-03 21:09:09] [12:00:14] [RED] Conexión sospechosa detectada desde 192.168.1.4 al puerto 4444.
+[2026-09-03 21:09:09] [RED] Intervalo anómalo detectado para 192.168.1.4: 2 segundos.
+[2026-09-03 21:09:09] [12:00:16] [RED] Conexión sospechosa detectada desde 192.168.1.4 al puerto 4444.
+[2026-09-03 21:09:09] [RED] Intervalo anómalo detectado para 192.168.1.4: 2 segundos.
+[2026-09-03 21:09:09] [12:00:18] [RED] Conexión sospechosa detectada desde 192.168.1.2 al puerto 31337.
+[2026-09-03 21:09:09] [INFO] Gestor de tráfico detenido
+[2026-02-03 21:56:40] [INFO] Gestor de archivos iniciado
+[2026-02-03 21:56:40] [INFO] Los archivos existentes fueron cargados
+[2026-02-03 21:56:52] [INTEGRIDAD] El archivo Nuevo Documento de texto.txt ha sido creado.
+[2026-02-03 21:56:59] [INTEGRIDAD] El archivo Nuevo Documento de texto.txt ha sido eliminado.
+[2026-02-03 21:57:04] [INTEGRIDAD] El archivo Nuevo Documento de texto.txt ha sido creado.
+[2026-02-03 21:57:04] [INTEGRIDAD] El archivo c.txt ha sido creado.
+[2026-02-03 21:57:04] [INTEGRIDAD] El archivo Nuevo Documento de texto.txt ha sido eliminado.
+[2026-02-03 21:57:08] [INTEGRIDAD] El archivo c.txt ha sido modificado.
+[2026-02-03 21:57:14] [INTEGRIDAD] El archivo c.txt ha sido eliminado.
+[2026-02-03 21:57:18] [INTEGRIDAD] El archivo Nuevo Documento de texto.txt ha sido creado.
+[2026-02-03 21:57:19] [INTEGRIDAD] El archivo cdsç.txt ha sido creado.
+[2026-02-03 21:57:19] [INTEGRIDAD] El archivo Nuevo Documento de texto.txt ha sido eliminado.
+[2026-02-03 21:57:21] [INTEGRIDAD] El archivo cdsç - copia.txt ha sido creado.
+[2026-02-03 21:57:22] [INTEGRIDAD] El archivo cdsç - copia (2).txt ha sido creado.
+[2026-02-03 21:57:23] [INTEGRIDAD] El archivo cdsç - copia (3).txt ha sido creado.
+[2026-02-03 21:57:23] [INTEGRIDAD] El archivo cdsç - copia (4).txt ha sido creado.
+[2026-02-03 21:57:23] [INTEGRIDAD] El archivo cdsç - copia (5).txt ha sido creado.
+[2026-02-03 21:57:23] [INTEGRIDAD] El archivo cdsç - copia (6).txt ha sido creado.
+[2026-02-03 21:57:24] [INTEGRIDAD] El archivo cdsç - copia (7).txt ha sido creado.
+[2026-02-03 21:57:24] [INTEGRIDAD] El archivo cdsç - copia (8).txt ha sido creado.
+[2026-02-03 21:57:24] [INTEGRIDAD] El archivo cdsç - copia (9).txt ha sido creado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia (5).txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia (6).txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia (7).txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia (8).txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia (9).txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç.txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia.txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia (2).txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia (3).txt ha sido eliminado.
+[2026-02-03 21:57:36] [INTEGRIDAD] El archivo cdsç - copia (4).txt ha sido eliminado.
+[2026-02-03 21:57:50] [INFO] Iniciando simulación de tráfico
+[2026-02-03 21:57:50] [INFO] Análisis de red iniciado
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 4444 desde 192.168.1.0
+[2026-02-03 21:57:50] [RED] Ráfaga de tráfico detectada desde 192.168.1.0: 2 seg.
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 4444 desde 192.168.1.4
+[2026-02-03 21:57:50] [RED] Ráfaga de tráfico detectada desde 192.168.1.4: 2 seg.
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 4444 desde 192.168.1.4
+[2026-02-03 21:57:50] [RED] Ráfaga de tráfico detectada desde 192.168.1.4: 2 seg.
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 31337 desde 192.168.1.2
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 4444 desde 192.168.1.3
+[2026-02-03 21:57:50] [RED] Ráfaga de tráfico detectada desde 192.168.1.3: 2 seg.
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 31337 desde 192.168.1.4
+[2026-02-03 21:57:50] [RED] IP frecuente detectada: 192.168.1.4 (4 veces)
+[2026-02-03 21:57:50] [RED] IP frecuente detectada: 192.168.1.2 (4 veces)
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 31337 desde 192.168.1.2
+[2026-02-03 21:57:50] [RED] IP frecuente detectada: 192.168.1.2 (5 veces)
+[2026-02-03 21:57:50] [RED] Ráfaga de tráfico detectada desde 192.168.1.2: 2 seg.
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 31337 desde 192.168.1.2
+[2026-02-03 21:57:50] [RED] IP frecuente detectada: 192.168.1.2 (6 veces)
+[2026-02-03 21:57:50] [RED] Ráfaga de tráfico detectada desde 192.168.1.2: 2 seg.
+[2026-02-03 21:57:50] [RED] IP frecuente detectada: 192.168.1.2 (7 veces)
+[2026-02-03 21:57:50] [RED] Ráfaga de tráfico detectada desde 192.168.1.2: 2 seg.
+[2026-02-03 21:57:50] [RED] Puerto sospechoso: 4444 desde 192.168.1.3
+[2026-02-03 21:57:50] [RED] IP frecuente detectada: 192.168.1.3 (4 veces)
+[2026-02-03 21:57:50] [INFO] Análisis de red finalizado
+[2026-02-03 22:14:29] [INFO] Gestor de archivos iniciado
+[2026-02-03 22:14:29] [INFO] Los archivos existentes fueron cargados
+[2026-02-03 22:14:45] [INTEGRIDAD] El archivo Nuevo Documento de texto.txt ha sido creado.
+[2026-02-03 22:14:49] [INTEGRIDAD] El archivo Nuevo Documento de texto.txt ha sido eliminado.
+[2026-02-03 22:14:52] [INFO] Iniciando simulación de tráfico
+[2026-02-03 22:14:52] [INFO] Análisis de red iniciado
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 4444 desde 192.168.1.0
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.0: 2 seg.
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 4444 desde 192.168.1.4
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.4: 2 seg.
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 4444 desde 192.168.1.4
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.4: 2 seg.
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 31337 desde 192.168.1.2
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 4444 desde 192.168.1.3
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.3: 2 seg.
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 31337 desde 192.168.1.4
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.4 (4 veces)
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.2 (4 veces)
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 31337 desde 192.168.1.2
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.2 (5 veces)
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.2: 2 seg.
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 31337 desde 192.168.1.2
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.2 (6 veces)
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.2: 2 seg.
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.2 (7 veces)
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.2: 2 seg.
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 4444 desde 192.168.1.3
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.3 (4 veces)
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 4444 desde 192.168.1.0
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 31337 desde 192.168.1.3
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.3 (5 veces)
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.1 (4 veces)
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.4 (5 veces)
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.4: 0 seg.
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.2 (8 veces)
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.0 (4 veces)
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 31337 desde 192.168.1.4
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.4 (6 veces)
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 4444 desde 192.168.1.1
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.1 (5 veces)
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.3 (6 veces)
+[2026-02-03 22:14:52] [RED] Puerto sospechoso: 31337 desde 192.168.1.3
+[2026-02-03 22:14:52] [RED] IP frecuente detectada: 192.168.1.3 (7 veces)
+[2026-02-03 22:14:52] [RED] Ráfaga de tráfico detectada desde 192.168.1.3: 2 seg.
+[2026-02-03 22:14:52] [INFO] Análisis de red finalizado
+[2026-02-03 22:15:00] [INFO] Monitor de procesos activado
+[2026-02-03 22:15:00] [INFO] Cargando base de datos de procesos prohibidos
+[2026-02-03 22:15:00] [INFO] Procesos prohibidos cargados correctamente
+[2026-02-03 22:15:00] [PROCESO] Uso excesivo de CPU: proceso_seguro_4.exe al 84%
+[2026-02-03 22:15:00] [PROCESO] El proceso proceso_seguro_1.exe ha iniciado.
+[2026-02-03 22:15:00] [PROCESO] El proceso proceso_seguro_0.exe ha iniciado.
+[2026-02-03 22:15:00] [PROCESO] El proceso proceso_seguro_4.exe ha iniciado.
+[2026-02-03 22:15:00] [PROCESO] El proceso proceso_seguro_2.exe ha iniciado.
+[2026-02-03 22:15:00] [PROCESO] El proceso proceso_seguro_2.exe ha finalizado.
+[2026-02-03 22:15:00] [PROCESO] El proceso virus.exe ha iniciado.
+[2026-02-03 22:15:00] [PROCESO] El proceso virus.exe ha finalizado.
+[2026-02-03 22:15:00] [PROCESO] El proceso virus.exe ha iniciado.
+[2026-02-03 22:15:00] [PROCESO] El proceso virus.exe ha finalizado.
+[2026-02-03 22:15:00] [INFO] Nueva sanción: proceso_seguro_4.exe añadido a lista negra
+[2026-02-03 22:15:00] [PROCESO] El proceso proceso_seguro_1.exe ha finalizado.
+[2026-02-03 22:15:00] [PROCESO] El proceso proceso_seguro_0.exe ha finalizado.
+[2026-02-03 22:15:00] [PROCESO] El proceso proceso_seguro_4.exe ha finalizado.
+[2026-02-03 22:15:00] [PROCESO] Terminando proceso malicioso: proceso_seguro_4.exe
+[2026-02-03 22:15:00] [PROCESO] Uso excesivo de CPU: proceso_seguro_0.exe al 95%
+[2026-02-03 22:15:00] [INFO] Nueva sanción: proceso_seguro_0.exe añadido a lista negra
+[2026-02-03 22:15:00] [PROCESO] Terminando proceso malicioso: proceso_seguro_0.exe
+[2026-02-03 22:15:00] [PROCESO] Uso excesivo de CPU: virus.exe al 94%
+[2026-02-03 22:15:00] [INFO] Nueva sanción: virus.exe añadido a lista negra
+[2026-02-03 22:15:00] [PROCESO] Terminando proceso malicioso: virus.exe
+[2026-02-03 22:15:00] [INFO] Monitor de procesos finalizado
+[2026-02-03 22:15:03] [INFO] Monitor de procesos activado
+[2026-02-03 22:15:03] [INFO] Cargando base de datos de procesos prohibidos
+[2026-02-03 22:15:03] [INFO] Procesos prohibidos cargados correctamente
+[2026-02-03 22:15:03] [PROCESO] El proceso proceso_seguro_0.exe ha iniciado.
+[2026-02-03 22:15:03] [PROCESO] El proceso proceso_seguro_0.exe ha finalizado.
+[2026-02-03 22:15:03] [PROCESO] El proceso proceso_seguro_1.exe ha iniciado.
+[2026-02-03 22:15:03] [PROCESO] El proceso proceso_seguro_1.exe ha finalizado.
+[2026-02-03 22:15:03] [PROCESO] Amenaza detectada (Lista Negra): proceso_seguro_0.exe
+[2026-02-03 22:15:03] [PROCESO] Terminando proceso malicioso: proceso_seguro_0.exe
+[2026-02-03 22:15:03] [PROCESO] Amenaza detectada (Lista Negra): virus.exe
+[2026-02-03 22:15:03] [PROCESO] Terminando proceso malicioso: virus.exe
+[2026-02-03 22:15:03] [PROCESO] Amenaza detectada (Lista Negra): proceso_seguro_4.exe
+[2026-02-03 22:15:03] [PROCESO] Terminando proceso malicioso: proceso_seguro_4.exe
+[2026-02-03 22:15:03] [PROCESO] Amenaza detectada (Lista Negra): virus.exe
+[2026-02-03 22:15:03] [PROCESO] Terminando proceso malicioso: virus.exe
+[2026-02-03 22:15:03] [PROCESO] El proceso proceso_seguro_2.exe ha iniciado.
+[2026-02-03 22:15:03] [PROCESO] El proceso proceso_seguro_2.exe ha finalizado.
+[2026-02-03 22:15:03] [PROCESO] El proceso proceso_seguro_4.exe ha iniciado.
+[2026-02-03 22:15:03] [PROCESO] El proceso proceso_seguro_4.exe ha finalizado.
+[2026-02-03 22:15:03] [PROCESO] El proceso virus.exe ha iniciado.
+[2026-02-03 22:15:03] [PROCESO] El proceso virus.exe ha finalizado.
+[2026-02-03 22:15:03] [PROCESO] El proceso virus.exe ha iniciado.
+[2026-02-03 22:15:03] [PROCESO] El proceso virus.exe ha finalizado.
+[2026-02-03 22:15:03] [PROCESO] Uso excesivo de CPU: proceso_seguro_2.exe al 41%
+[2026-02-03 22:15:03] [INFO] Nueva sanción: proceso_seguro_2.exe añadido a lista negra
+[2026-02-03 22:15:03] [PROCESO] Terminando proceso malicioso: proceso_seguro_2.exe
+[2026-02-03 22:15:03] [INFO] Monitor de procesos finalizado
