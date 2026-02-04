@@ -80,7 +80,7 @@ public class GestorProcesos extends Thread {
                 ProcesoSimulado proceso = procesosActivos.get(indice);
                 boolean esSospechoso = false;
 
-                // 1. Verificación en Lista Negra (Sin usar contains para mantener lógica de bucle explícita)
+                // 1. Verificación en lista negra
                 for (int j = 0; j < listaNegraProcesos.size(); j++) {
                     if (listaNegraProcesos.get(j).equalsIgnoreCase(proceso.getNombre())) {
                         registroLog.registrarLinea(rutaRegistroAlertas, "[PROCESO] El proceso se encuentra en la lista negra: " + proceso.getNombre());
@@ -101,7 +101,7 @@ public class GestorProcesos extends Thread {
                     esSospechoso = true;
                 }
 
-                // Acción correctiva o limpieza
+                // Si la variable esSospechoso es true inrgesa
                 if (esSospechoso) {
                     // Verificamos si ya está sancionado para no duplicar en archivo
                     boolean yaSancionado = false;

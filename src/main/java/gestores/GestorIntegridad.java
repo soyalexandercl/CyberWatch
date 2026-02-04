@@ -5,12 +5,10 @@ package gestores;
    Calcular el hash SHA-256 de cada archivo de una carpeta.
    Detectar cambios, eliminaciones o creaciones nuevas.
    Registrar alertas en log_sdas.txt.
-*/
 
-/* En el módulo 1 se crea un hilo debido a que se debe estar realizando consultas para 
+   En el módulo 1 se crea un hilo debido a que se debe estar realizando consultas para 
    identificar si hubieron cambios, eliminaciones o creaciones.
-*/
-
+ */
 import entidad.ArchivoIntegridad;
 import java.io.File;
 import java.nio.file.Files;
@@ -23,26 +21,26 @@ import util.Log;
 public class GestorIntegridad extends Thread {
 
     /* Siempre las variables de clase se crean al inicio */
-    private final String rutaCarpeta; 
+    private final String rutaCarpeta;
     /* Aquí es donde voy a almacenar la ruta de la carpeta que se va a gestionar. Final indica una variable constante */
-    private final List<ArchivoIntegridad> archivosRegistrados; 
+    private final List<ArchivoIntegridad> archivosRegistrados;
     /* Esto es un ArrayList donde se almacenan todos los archivos procesados */
-    private final Log registroLog; 
+    private final Log registroLog;
     /* Nombre del tipo de dato (Clase) - gestiona los registros de eventos */
-    private boolean enEjecucion; 
+    private boolean enEjecucion;
 
     /* El constructor se crea al inicio y siempre va a ser public, aquí se inicializan las variables creadas */
     public GestorIntegridad(String rutaCarpeta, Log registroLog) {
-        this.rutaCarpeta = rutaCarpeta; /* Referencia a la variable de la clase con this */
+        this.rutaCarpeta = rutaCarpeta;
+        /* Referencia a la variable de la clase con this */
         this.registroLog = registroLog;
         this.archivosRegistrados = new ArrayList<>();
         this.enEjecucion = true;
     }
 
     /* ==================================================== */
-    /* CALCULAR HASH SHA-256                 */
-    /* ==================================================== */
-    
+ /* CALCULAR HASH SHA-256                 */
+ /* ==================================================== */
     private String generarFirmaDigital(File archivo) {
         /* El try sirve para manejar los errores de lectura o algoritmo */
         try {
@@ -50,7 +48,7 @@ public class GestorIntegridad extends Thread {
             byte[] contenidoBytes = Files.readAllBytes(archivo.toPath());
             /* Se declara el algoritmo SHA-256 y se procesan los datos */
             byte[] hashBytes = MessageDigest.getInstance("SHA-256").digest(contenidoBytes);
-            
+
             /* StringBuilder permite construir el texto hexadecimal de manera eficiente */
             StringBuilder constructorHex = new StringBuilder();
             for (byte b : hashBytes) {
@@ -59,16 +57,19 @@ public class GestorIntegridad extends Thread {
             }
             return constructorHex.toString();
         } catch (Exception e) {
-            return null; /* En caso de error se retorna nulo */
+            return null;
+            /* En caso de error se retorna nulo */
         }
     }
 
-    @Override
     /* El @Override sobreescribe el método run para ejecutar la lógica del hilo */
+    @Override
+    /* Lo que está dentro del run es lo que se ejecuta al iniciar el hilo */
     public void run() {
-        File directorio = new File(rutaCarpeta); /* Se crea el objeto de tipo File */
-        
-        /* Verifica si la ruta proporcionada representa realmente una carpeta */
+        File directorio = new File(rutaCarpeta);
+        /* Se crea el objeto de tipo File */
+
+ /* Verifica si la ruta proporcionada representa realmente una carpeta */
         if (directorio.isDirectory()) {
             registroLog.registrarLinea("logs/log_sdas.txt", "[INFO] Gestor de archivos iniciado");
 
@@ -87,21 +88,22 @@ public class GestorIntegridad extends Thread {
             /* Bucle constante para monitorear cambios mientras el hilo esté activo */
             while (enEjecucion) {
                 File[] archivosActuales = directorio.listFiles();
-                
+
                 if (archivosActuales != null) {
                     /* Detectar nuevos archivos y/o modificados */
                     for (File archivoFisico : archivosActuales) {
                         if (!archivoFisico.isFile()) {
-                            continue; /* Si no es un archivo, pasa a la siguiente iteración */
+                            continue;
+                            /* Si no es un archivo, pasa a la siguiente iteración */
                         }
 
                         boolean encontrado = false;
                         String firmaActual = generarFirmaDigital(archivoFisico);
-                        
+
                         int indice = 0;
                         while (indice < archivosRegistrados.size()) {
                             ArchivoIntegridad registro = archivosRegistrados.get(indice);
-                            
+
                             /* Compara el nombre del archivo con los registros guardados */
                             if (registro.getNombre().equals(archivoFisico.getName())) {
                                 encontrado = true;
@@ -126,7 +128,7 @@ public class GestorIntegridad extends Thread {
                     while (k < archivosRegistrados.size()) {
                         boolean todaviaExiste = false;
                         String nombreRegistrado = archivosRegistrados.get(k).getNombre();
-                        
+
                         for (File f : archivosActuales) {
                             if (f.getName().equals(nombreRegistrado)) {
                                 todaviaExiste = true;
@@ -143,5 +145,5 @@ public class GestorIntegridad extends Thread {
                 }
             }
         }
-    } /* Lo que está dentro del run es lo que se ejecuta al iniciar el hilo */
+    }
 }

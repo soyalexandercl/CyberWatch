@@ -39,7 +39,6 @@ public class GestorRed {
                 escritor.newLine();
             }
         } catch (IOException e) {
-            // Error en escritura ignorado para mantener flujo
         }
     }
 
@@ -48,7 +47,7 @@ public class GestorRed {
 
         List<String> historialIps = new ArrayList<>();
         List<String> historialTiempos = new ArrayList<>();
-        
+
         List<String> puertosSospechosos = new ArrayList<>();
         puertosSospechosos.add("4444");
         puertosSospechosos.add("31337");
@@ -97,7 +96,7 @@ public class GestorRed {
                         if (!tiempoUltimaConexion.isEmpty()) {
                             LocalDateTime tiempoAnterior = LocalDateTime.parse(tiempoUltimaConexion, formatoFecha);
                             long segundosTranscurridos = ChronoUnit.SECONDS.between(tiempoAnterior, tiempoActual);
-                            
+
                             if (segundosTranscurridos >= 0 && segundosTranscurridos < 5) {
                                 registroLog.registrarLinea(rutaInformeAlertas, "[RED] Tráfico anómalo detectado desde " + ipActual + ": " + segundosTranscurridos + " segundos.");
                             }

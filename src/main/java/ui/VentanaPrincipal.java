@@ -27,7 +27,7 @@ public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal() {
         configurarVentanaPrincipal();
         inicializarComponentesVisuales();
-        // Se inicializa el logger vinculándolo al área de texto para mostrar eventos
+        // Se inicializa el log vinculándolo al área de texto para mostrar eventos
         this.registroLog = new Log(areaTextoRegistros);
     }
 
@@ -47,13 +47,13 @@ public class VentanaPrincipal extends JFrame {
                 BorderFactory.createEmptyBorder(15, 15, 15, 15)
         ));
 
-        // 1. TÍTULO SUPERIOR
+        // 1. Título superior
         JLabel etiquetaTitulo = new JLabel("CIBERSEGURIDAD", SwingConstants.CENTER);
         etiquetaTitulo.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 26));
         etiquetaTitulo.setForeground(COLOR_TITULO);
         panelPrincipal.add(etiquetaTitulo, BorderLayout.NORTH);
 
-        // 2. ÁREA CENTRAL DE REGISTROS (LOGS)
+        // 2. Área del log
         areaTextoRegistros = new JTextArea();
         areaTextoRegistros.setEditable(false);
         areaTextoRegistros.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -63,14 +63,14 @@ public class VentanaPrincipal extends JFrame {
         JScrollPane panelDesplazamiento = new JScrollPane(areaTextoRegistros);
         panelPrincipal.add(panelDesplazamiento, BorderLayout.CENTER);
 
-        // 3. PANEL INFERIOR DE CONTROLES
+        // 3. Panel inferior
         JPanel panelInferior = new JPanel(new GridBagLayout());
         panelInferior.setBackground(COLOR_FONDO);
         GridBagConstraints restricciones = new GridBagConstraints();
         restricciones.fill = GridBagConstraints.BOTH;
         restricciones.insets = new Insets(5, 5, 5, 5);
 
-        // Selección de Carpeta de Trabajo
+        // Selección de carpeta
         campoRutaDirectorio = new JTextField();
         campoRutaDirectorio.setEditable(false);
         campoRutaDirectorio.setFont(new Font("Georgia", Font.ITALIC, 12));
@@ -83,13 +83,13 @@ public class VentanaPrincipal extends JFrame {
         restricciones.gridx = 1; restricciones.weightx = 0.3;
         panelInferior.add(botonSeleccionar, restricciones);
 
-        // Botón para Monitor de Archivos (Integridad)
+        // Botón para monitor de archivos
         JButton botonMonitorArchivos = crearBotonPersonalizado("Iniciar Monitor de Archivos");
         botonMonitorArchivos.addActionListener(this::ejecutarMonitoreoIntegridad);
         restricciones.gridx = 0; restricciones.gridy = 1; restricciones.gridwidth = 2;
         panelInferior.add(botonMonitorArchivos, restricciones);
 
-        // Botones de Tráfico de Red y Simulación de Procesos
+        // Botones de tráfico de red
         JButton botonRed = crearBotonPersonalizado("Iniciar Tráfico");
         botonRed.addActionListener(this::ejecutarAnalisisRed);
         restricciones.gridx = 0; restricciones.gridy = 2; restricciones.gridwidth = 1; restricciones.weightx = 0.5; restricciones.ipady = 40;

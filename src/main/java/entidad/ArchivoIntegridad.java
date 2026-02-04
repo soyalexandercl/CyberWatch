@@ -1,4 +1,4 @@
-/* Este objeto guarda los datos de cada archivo de forma individual para el control de integridad */
+/* Guarda los datos de cada archivo de forma individual para el control de integridad */
 package entidad;
 
 public class ArchivoIntegridad {

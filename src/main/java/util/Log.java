@@ -45,7 +45,7 @@ public class Log {
             SwingUtilities.invokeLater(() -> areaTextoLogs.append(lineaCompleta + "\n"));
 
         } catch (IOException error) {
-            /* Si entra en el catch es porque hubo un problema de escritura; se notifica en consola */
+            /* Si entra en el catch es porque hubo un problema de escritura */
             System.out.println("Error al escribir en el archivo de registro: " + error.getMessage());
         }
     }
